@@ -11,11 +11,15 @@
 
 <%= render @comments %>
 
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_area :content, :cols => 30, :rows => 5 %>
-  <div>
-    <%= f.button 'Comment' %>
-  </div>
+<% if user_signed_in? %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_area :content, :cols => 30, :rows => 5 %>
+    <div class='form-actions'>
+      <%= f.button 'Comment', :class => 'btn' %>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in with Facebook", '#', :id => 'facebook-login' %>
 <% end %>
 
 <p>
