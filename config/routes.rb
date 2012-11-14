@@ -1,4 +1,5 @@
 WorkshopsBlog::Application.routes.draw do
+  devise_for :users
   resources :posts
 
   namespace(:admin){ resources :posts }
