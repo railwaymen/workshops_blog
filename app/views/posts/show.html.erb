@@ -9,6 +9,15 @@
   <%= @post.title %>
 </p>
 
+<%= render @comments %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :content, :cols => 30, :rows => 5 %>
+  <div class='form-actions'>
+    <%= f.button 'Comment', :class => 'btn' %>
+  </div>
+<% end %>
+
 <p>
   <%= link_to "View All", posts_path %>
 </p>
