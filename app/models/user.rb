@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def password_required?
-    facebook_uid.nil?
+    new_record? && facebook_uid.nil?
   end
 end
