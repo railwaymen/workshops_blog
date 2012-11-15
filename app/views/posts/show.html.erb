@@ -8,6 +8,7 @@
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
+<p><%= image_tag @post.image if @post.image.exists? %></p>
 
 <%= render @comments %>
 
